@@ -7,7 +7,7 @@ public interface CalculatorService {
 
     String errorDivision();
 
-    double addition(double num1, double num2);
+    Double addition(Double num1, Double num2);
 
     double subtraction(double num1, double num2);
 

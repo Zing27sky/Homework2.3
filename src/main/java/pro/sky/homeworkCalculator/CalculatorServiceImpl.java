@@ -1,7 +1,6 @@
 package pro.sky.homeworkCalculator;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
@@ -17,7 +16,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         return "Ошибка: Нехватает вводных данных";
     }
 
-    public double addition(double num1, double num2) {
+    public Double addition(Double num1, Double num2) {
         return num1 + num2;
     }
 

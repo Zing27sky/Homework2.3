@@ -19,8 +19,11 @@ public class CalculatorController {
     }
 
     @GetMapping("/calculator/plus")
-    public String addition(@RequestParam double num1, @RequestParam double num2) {
-        double result = calculatorService.addition(num1, num2);
+    public String addition(@RequestParam Double num1, @RequestParam Double num2) {
+        if (num1 == null|| num2 == null) {
+            return calculatorService.error();
+        }
+        Double result = calculatorService.addition(num1, num2);
         return calculator() + " " + num1 + " + " + num2 + " = " + result;
     }
 
