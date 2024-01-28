@@ -9,9 +9,9 @@ public interface CalculatorService {
 
     Double addition(Double num1, Double num2);
 
-    double subtraction(double num1, double num2);
+    Double subtraction(Double num1, Double num2);
 
-    double multiplication(double num1, double num2);
+    Double multiplication(Double num1, Double num2);
 
-    double division(double num1, double num2);
+    Double division(Double num1, Double num2);
 }
