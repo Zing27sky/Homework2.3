@@ -1,7 +1,5 @@
 package pro.sky.homeworkCalculator;
 
-import jakarta.websocket.server.PathParam;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,13 +16,13 @@ public class CalculatorController {
 
     @GetMapping(path = "/calculator")
     public String calculator() {
-        return calculatorService.calculator();
+        return "Добро пожаловть в калькулятор! ";
     }
 
     @GetMapping("/calculator/plus")
     public String addition(@RequestParam Optional<Double> num1, @RequestParam Optional<Double> num2) {
         if (num1.isEmpty() || num2.isEmpty()) {
-            return calculatorService.error();
+            return "Ошибка: Не хватает вводных данных!";
         }
         Double result = calculatorService.addition(num1.get(), num2.get());
         return calculator() + " " + num1.get() + " + " + num2.get() + " = " + result;
@@ -33,7 +31,7 @@ public class CalculatorController {
     @GetMapping("/calculator/minus")
     public String subtraction(@RequestParam Optional<Double> num1, @RequestParam Optional<Double> num2) {
         if (num1.isEmpty() || num2.isEmpty()) {
-            return calculatorService.error();
+            return "Ошибка: Не хватает вводных данных!";
         }
         double result = calculatorService.subtraction(num1.get(), num2.get());
         return calculator() + " " + num1.get() + " - " + num2.get() + " = " + result;
@@ -42,7 +40,7 @@ public class CalculatorController {
     @GetMapping("/calculator/multiply")
     public String multiplication(@RequestParam Optional<Double> num1, @RequestParam Optional<Double> num2) {
         if (num1.isEmpty() || num2.isEmpty()) {
-            return calculatorService.error();
+            return "Ошибка: Не хватает вводных данных!";
         }
         double result = calculatorService.multiplication(num1.get(), num2.get());
         return calculator() + " " + num1.get() + " * " + num2.get() + " = " + result;
@@ -51,10 +49,10 @@ public class CalculatorController {
     @GetMapping("/calculator/divide")
     public String division(@RequestParam Optional<Double> num1, @RequestParam Optional<Double> num2) {
         if (num1.isEmpty() || num2.isEmpty()) {
-            return calculatorService.error();
+            return "Ошибка: Не хватает вводных данных!";
         }
         if (num2.get() == 0) {
-            return calculator() + " " + calculatorService.errorDivision();
+            return calculator() + "Ошибка: На ноль делить нельзя!";
         }
         double result = calculatorService.division(num1.get(), num2.get());
         return calculator() + " " + num1.get() + " / " + num2.get() + " = " + result;

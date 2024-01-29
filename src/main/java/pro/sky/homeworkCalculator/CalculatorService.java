@@ -1,11 +1,6 @@
 package pro.sky.homeworkCalculator;
 
 public interface CalculatorService {
-    String calculator();
-
-    String error();
-
-    String errorDivision();
 
     Double addition(Double num1, Double num2);
 
